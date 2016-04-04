@@ -25,7 +25,6 @@ $users = $cmd->fetchAll();
 
 $conn = null;
 
-// todo Update to show fullname and email address
 //todo Convert to admin panel and add link to pages admin?
 echo '<table class="table table-striped">
         <thead>
