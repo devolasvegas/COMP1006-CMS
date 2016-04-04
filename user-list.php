@@ -1,4 +1,7 @@
-<?php
+<?php ob_start();
+
+require ('auth.php');
+//session_start();
 /**
  * Created by PhpStorm.
  * User: devon
@@ -25,6 +28,7 @@ $users = $cmd->fetchAll();
 
 $conn = null;
 
+//todo Add 'Log Out' and associated page
 //todo Convert to admin panel and add link to pages admin?
 echo '<table class="table table-striped">
         <thead>
@@ -52,4 +56,4 @@ echo '</tbody>
 
 require('footer.php');
 
-?>
+ob_flush(); ?>

@@ -12,10 +12,10 @@
 <body>
     <nav class="navbar navbar-default">
 
-    <a href="index.php" title="Home" class="navbar-brand"><i class=""></i>  Devon's CMS</a>
+    <a href="default.php" title="Home" class="navbar-brand"><i class=""></i>  Devon's CMS</a>
 
     <ul class="nav navbar-nav pull-right">
-        <li><a href="index.php" title="Home">Home</a></li>
+        <li><a href="default.php" title="Home">Home</a></li>
         <li><a href="register.php" title="Register">Sign Up</a></li>
         <li><a href="login.php" title="Log In">Sign In</a></li>
     </ul>
