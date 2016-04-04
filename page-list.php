@@ -40,7 +40,7 @@ foreach ($pages as $page){
             <td>' . $page['pagetitle'] . '</td>
             <td><a href="add-page.php?page_id=' . $page['page_id'] . '"</td>
             <td><a href="delete-page?page_id=' . $page['page_id'] . '"</td>
-            </tr>';
+          </tr>';
 }
 
 echo '</tbody>
