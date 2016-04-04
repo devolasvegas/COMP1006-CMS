@@ -33,12 +33,14 @@ if(is_numeric($_GET['user_id'])){
         $username = $user['username'];
         $password = $user['password'];
     }
+
+    echo '<h1>Edit User Info</h1>';
+} else {
+    echo " <h1>Register a New User</h1>";
 }
 ?>
 
-    <h1>Register a New User</h1>
-    
-    <!--todo Add Full name, email address -->
+
     <form method="post" action="save-registration.php" class="form-horizontal">
         <div class="form-group">
             <label for="fullname" class="col-sm-2">Full Name</label>
