@@ -45,7 +45,7 @@ foreach ($pages as $page){
     echo '<tr>
             <td>' . $page['pagetitle'] . '</td>
             <td><a href="create-page.php?page_id=' . $page['page_id'] . '" title="Edit Page">Edit</a></td>
-            <td><a href="delete-page?page_id=' . $page['page_id'] . '" title="Delete Page">Delete</a></td>
+            <td><a class="confirmation-page" href="delete-page.php?page_id=' . $page['page_id'] . '" title="Delete Page">Delete</a></td>
           </tr>';
 }
 

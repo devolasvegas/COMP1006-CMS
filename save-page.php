@@ -38,7 +38,6 @@ if (empty($pagecontent)){
 
 if ($ok) {
     try {
-        echo 'Inside try';
         require ('db.php');
         if ($edit){
             $sql = "UPDATE pages SET pagetitle = :pagetitle, pagecontent = :pagecontent WHERE page_id = :page_id";
