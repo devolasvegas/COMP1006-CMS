@@ -6,10 +6,8 @@
  * Time: 11:26 AM
  */
 
-require_once ('auth.php');
-
 $page_title = 'Saving your registration . . .';
-require_once('header.php');
+require_once ('header.php');
 
 // Put form inputs into variables
 $fullname = $_POST['fullname'];
