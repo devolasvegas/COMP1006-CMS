@@ -44,7 +44,8 @@ try {
         session_start();
         if (!empty($_SESSION['user_id'])) {
             echo '<li><a href="page-list.php" title="Page Administration">Pages</a></li>
-                  <li><a href="user-list.php" title="User Administration">Users</a></li>';
+                  <li><a href="user-list.php" title="User Administration">Users</a></li>
+                  <li><a href="logout.php" title="Log Out">Sign Out</a></li>';
         } else {
             echo '<li><a href="register.php" title="Register">Sign Up</a></li>
                   <li><a href="login.php" title="Log In">Sign In</a></li>';
