@@ -1,5 +1,5 @@
 <?php ob_start();
-session_start();
+
 
 require ('auth.php');
 
@@ -23,7 +23,7 @@ if(is_numeric($_GET['page_id'])){
 
     $page_id = $_GET['page_id'];
     try {
-        require_once('db.php');
+        require('db.php');
 
         $sql = "SELECT * FROM pages WHERE page_id = :page_id";
         $cmd = $conn->prepare($sql);
@@ -33,7 +33,7 @@ if(is_numeric($_GET['page_id'])){
 
         $conn = null;
     } catch (Exception $e) {
-        mail('devondaviau@yahoo.ca', 'CMS Error' $e)
+        mail('devondaviau@yahoo.ca', 'CMS Error', $e);
 }
 
     foreach($pages as $page){

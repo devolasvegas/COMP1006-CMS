@@ -1,6 +1,5 @@
 <?php ob_start();
 
-session_start();
 
 require ('auth.php');
 /**
@@ -10,10 +9,13 @@ require ('auth.php');
  * Time: 11:35 AM
  */
 
+$page_title = 'Page List';
+
 require ('header.php');
 
 try {
-    require_once('db.php');
+
+    require ('db.php');
 
     $sql = "SELECT * FROM pages";
     $cmd = $conn->prepare($sql);
@@ -21,11 +23,12 @@ try {
     $pages = $cmd->fetchAll();
 
     $conn = null;
-
 } catch (Exception $e) {
     mail('devondaviau@yahoo.ca', 'CMS Error', $e);
     header('location: error.php');
 }
+
+echo '<button class="btn btn-default"><a href="create-page.php" title="Create a New Web Page">Create a New Web Page</a></button>';
 
 echo '<table class="table table-striped">
         <thead>
@@ -38,8 +41,8 @@ echo '<table class="table table-striped">
 foreach ($pages as $page){
     echo '<tr>
             <td>' . $page['pagetitle'] . '</td>
-            <td><a href="add-page.php?page_id=' . $page['page_id'] . '"</td>
-            <td><a href="delete-page?page_id=' . $page['page_id'] . '"</td>
+            <td><a href="create-page.php?page_id=' . $page['page_id'] . '" title="Edit Page">Edit</a></td>
+            <td><a href="delete-page?page_id=' . $page['page_id'] . '" title="Delete Page">Delete</a></td>
           </tr>';
 }
 
