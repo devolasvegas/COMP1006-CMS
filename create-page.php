@@ -1,4 +1,7 @@
-<?php
+<?php ob_start();
+session_start();
+
+require ('auth.php');
 
 /**
  * Created by PhpStorm.
@@ -19,16 +22,19 @@ require('header.php');
 if(is_numeric($_GET['page_id'])){
 
     $page_id = $_GET['page_id'];
+    try {
+        require_once('db.php');
 
-    require_once('db.php');
+        $sql = "SELECT * FROM pages WHERE page_id = :page_id";
+        $cmd = $conn->prepare($sql);
+        $cmd->bindParam(':page_id', $page_id, PDO::PARAM_INT);
+        $cmd->execute();
+        $pages = $cmd->fetchAll();
 
-    $sql = "SELECT * FROM pages WHERE page_id = :page_id";
-    $cmd = $conn->prepare($sql);
-    $cmd->bindParam(':page_id', $page_id, PDO::PARAM_INT);
-    $cmd->execute();
-    $pages = $cmd->fetchAll();
-
-    $conn = null;
+        $conn = null;
+    } catch (Exception $e) {
+        mail('devondaviau@yahoo.ca', 'CMS Error' $e)
+}
 
     foreach($pages as $page){
         $page_id = $page['page_id'];
@@ -50,8 +56,7 @@ if(is_numeric($_GET['page_id'])){
     </div>
     <div class="form-group">
         <label for="pagecontent" class="col-sm-2">Page Content</label>
-        <textarea name="pagecontent" id="pagecontent" value="<?php echo $pagecontent; ?>" rows="6" />
-    </div>
+        <textarea name="pagecontent" id="pagecontent" rows="6" ><?php echo $pagecontent; ?></textarea>
     </div>
     <div class="col-sm-offset-2">
         <input type="submit" value="Submit Form" class="btn" />
@@ -61,4 +66,6 @@ if(is_numeric($_GET['page_id'])){
 
 <?php
 
-require('footer.php'); ?>
+require('footer.php'); 
+
+ob_flush(); ?>
