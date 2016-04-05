@@ -5,6 +5,9 @@
  * Date: 2016-03-22
  * Time: 11:26 AM
  */
+
+require_once ('auth.php');
+
 $page_title = 'Saving your registration . . .';
 require_once('header.php');
 
@@ -49,12 +52,11 @@ try {
         }
     }
 } catch (Exception $e) {
-// todo Uncomment try/catch mail command
-//        mail('devondaviau@yahoo.ca', 'CMS Error', $e);
+    mail('devondaviau@yahoo.ca', 'CMS Error', $e);
     header('location:error.php');
 }
 
-//}
+
 
 if (empty($email)) {
     echo 'Email address is required<br />';
@@ -114,8 +116,7 @@ if ($ok) {
         }
 
     } catch (Exception $e) {
-        // todo Uncomment try/catch mail command
-//        mail('devondaviau@yahoo.ca', 'CMS Error', $e);
+        mail('devondaviau@yahoo.ca', 'CMS Error', $e);
         header('location:error.php');
     }
 }

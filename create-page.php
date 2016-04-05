@@ -52,11 +52,11 @@ if(is_numeric($_GET['page_id'])){
 <form method="post" action="save-page.php" class="form-horizontal">
     <div class="form-group">
         <label for="pagetitle" class="col-sm-2">Page Title</label>
-        <input name="pagetitle" id="pagetitle" value="<?php echo $pagetitle; ?>"/>
+        <input name="pagetitle" id="pagetitle" value="<?php echo $pagetitle; ?>" required/>
     </div>
     <div class="form-group">
         <label for="pagecontent" class="col-sm-2">Page Content</label>
-        <textarea name="pagecontent" id="pagecontent" rows="6" ><?php echo $pagecontent; ?></textarea>
+        <textarea name="pagecontent" id="pagecontent" rows="6" required><?php echo $pagecontent; ?></textarea>
     </div>
     <div class="col-sm-offset-2">
         <input type="submit" value="Submit Form" class="btn" />
