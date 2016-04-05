@@ -28,15 +28,18 @@ try {
     header('location: error.php');
 }
 
-echo '<button class="btn btn-default"><a href="create-page.php" title="Create a New Web Page">Create a New Web Page</a></button>';
 
-echo '<table class="table table-striped">
-        <thead>
+echo '<h1>Page List</h1>
+
+    <button class="btn btn-default"><a href="create-page.php" title="Create a New Web Page">Create a New Web Page</a></button>
+
+    <table class="table table-striped">
+    <thead>
         <th>Page Title</th>
         <th>Edit Page</th>
         <th>Delete Page</th>
-      </thead>
-      <tbody>';
+    </thead>
+    <tbody>';
 
 foreach ($pages as $page){
     echo '<tr>

@@ -19,7 +19,12 @@ try {
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title><?php echo $page_title; ?></title>
+    <title><?php
+        if(is_numeric($page_id)){
+        echo $pages[$page_id-1]['pagetitle'];
+        } else {
+            echo $page_title;
+        } ?></title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <!-- Optional theme -->
