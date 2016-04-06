@@ -27,7 +27,7 @@ try{
             $old_logo_name = $item['image_name'];
         }
     }
-    echo $old_logo_id;
+    
 } catch (Exception $e) {
     mail('devondaviau@yahoo.ca', 'CMS Error', $e);
 }
