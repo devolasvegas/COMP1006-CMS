@@ -13,6 +13,9 @@ try {
 } catch (Exception $e){
     mail('devondaviau@yahoo.ca', 'CMS Error', $e);
 }
+
+require ('image-retrieve.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +23,7 @@ try {
 <head>
     <meta charset="UTF-8" />
     <title><?php
+        // Insert page title from db if page_id is in url
         if(is_numeric($page_id)){
         echo $pages[$page_id-1]['pagetitle'];
         } else {
@@ -34,7 +38,14 @@ try {
 <body>
     <nav class="navbar navbar-default">
 
-    <a href="default.php" title="Home" class="navbar-brand"><i class="fa fa-magic"></i>  Widgets Inc.</a>
+    <a href="default.php" title="Home" class="navbar-brand">
+        <?php if (!empty($logo)) {
+            echo '<img src="Content/images/' . $logo . '" alt="Site Logo" height="50" width="50" />';
+        } else {
+            echo
+            '<i class="fa fa-magic"></i>';
+        }
+        ?> Widgets Inc.</a>
 
     <ul class="nav navbar-nav pull-right">
         <li><a href="default.php" title="Home">Home</a></li>
