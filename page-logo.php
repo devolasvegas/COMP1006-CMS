@@ -18,7 +18,16 @@ try{
     $sql = "SELECT * FROM images";
     $cmd = $conn->prepare($sql);
     $cmd->execute();
-    $logo = $cmd->fetch()['image_name'];
+    $count = $cmd->rowCount();
+    $logo = $cmd->fetchAll();
+    $conn = null;
+    if ($count > 0) {
+        foreach ($logo as $item) {
+            $old_logo_id = $item['image_id'];
+            $old_logo_name = $item['image_name'];
+        }
+    }
+    echo $old_logo_id;
 } catch (Exception $e) {
     mail('devondaviau@yahoo.ca', 'CMS Error', $e);
 }
@@ -30,17 +39,18 @@ try{
     
     <form method="post" action="save-logo.php" enctype="multipart/form-data">
         <input type="file" name="logo" required />
+        <?php
+        if(!empty($logo)) {
+            echo
+                '<div class="col-sm-offset-2">
+			        <img class="img" title="logo" src="Content/images/' . $old_logo_name . '" />
+		        </div>';
+        } ?>
+        <input type="hidden" name="old-logo" id="old-logo" value="<?php echo $old_logo_id; ?>" />
         <button class="btn btn-primary col-sm-offset-2">Upload</button>
     </form>
 
 <?php
-
-    if(!empty($logo)){
-        echo '<h2>Current Logo</h2>
-              <img src="Content/images/' . $logo . '" />
-              <input type="hidden" name="old-logo" value="' . $logo . '" />';
-    }
-
 
 require_once('footer.php');
 

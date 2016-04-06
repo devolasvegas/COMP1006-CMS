@@ -36,14 +36,14 @@ if ($isOkay) {
     try {
         require ('db.php');
         if (!empty($old_logo)){
-            $sql = "UPDATE images SET image_name = :final_name WHERE image_name = :old_logo";
+            $sql = "UPDATE images SET image_name = :final_name WHERE image_id = :old_logo";
         } else {
             $sql = "INSERT INTO images (image_name) VALUES (:final_name)";
         }
         $cmd = $conn->prepare($sql);
         $cmd->bindParam(':final_name', $final_name, PDO::PARAM_STR, 255);
         if (!empty($old_logo)) {
-            $cmd->bindParam(':old_logo', $old_logo, PDO::PARAM_STR, 255);
+            $cmd->bindParam(':old_logo', $old_logo, PDO::PARAM_INT);
         }
         $cmd->execute();
 
