@@ -34,7 +34,7 @@ try {
 <body>
     <nav class="navbar navbar-default">
 
-    <a href="default.php" title="Home" class="navbar-brand"><i class=""></i>  Devon's CMS</a>
+    <a href="default.php" title="Home" class="navbar-brand"><i class="fa fa-magic"></i>  Widgets Inc.</a>
 
     <ul class="nav navbar-nav pull-right">
         <li><a href="default.php" title="Home">Home</a></li>
@@ -50,6 +50,7 @@ try {
         if (!empty($_SESSION['user_id'])) {
             echo '<li><a href="page-list.php" title="Page Administration">Pages</a></li>
                   <li><a href="user-list.php" title="User Administration">Users</a></li>
+                  <li><a href="page-logo.php" title="Upload Page Logo">Page Logo</a> </li>
                   <li><a href="logout.php" title="Log Out">Sign Out</a></li>';
         } else {
             echo '<li><a href="register.php" title="Register">Sign Up</a></li>
