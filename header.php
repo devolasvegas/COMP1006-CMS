@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Retrieve any page info from the database
 try {
     require ('db.php');
@@ -46,7 +46,7 @@ require ('image-retrieve.php');
             echo
             '<i class="fa fa-magic"></i>';
         }
-        ?> Widgets Inc.</a>
+        ?>  Widgets Inc.</a>
 
     <ul class="nav navbar-nav pull-right">
         <li><a href="default.php" title="Home">Home</a></li>
@@ -58,7 +58,7 @@ require ('image-retrieve.php');
             }
         }
         // If the page is being accessed by a registered user, display the appropriate links
-        session_start();
+
         if (!empty($_SESSION['user_id'])) {
             echo '<li><a href="page-list.php" title="Page Administration">Pages</a></li>
                   <li><a href="user-list.php" title="User Administration">Users</a></li>

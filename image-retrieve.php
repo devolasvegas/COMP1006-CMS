@@ -16,3 +16,5 @@ if ($image_count > 0){
 } catch (Exception $e){
     mail('devondaviau@yahoo.ca', 'CMS Error', $e);
 }
+
+?>
